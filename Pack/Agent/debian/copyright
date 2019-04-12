@@ -1,0 +1,7 @@
+Format: http://deb.debian.net/deps/dep5
+Upstream-Name: Agent
+Source: <url://example.com>
+
+Files: *
+Copyright: Yundun co.
+		All rights Reserved.

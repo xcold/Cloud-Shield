@@ -1,0 +1,23 @@
+#! /bin/bash
+
+set -e
+
+sed -i '/Start_Agent.sh/d' /etc/rc.local
+
+appPath="/usr/Agent"
+
+appData="/usr/AgentData"
+
+if [ -d ${appData} ]; then
+	rm -rf ${appData}
+fi
+
+if [ -d ${appPath} ]; then
+	rm -rf ${appPath}
+fi
+
+# 删除日志目录文件
+rm -rf /var/log/Agent/Log_Daemon
+rm -rf /var/log/Agent/Log_Agent
+rm -rf /var/log/Agent/Log_AgentDL
+rm -rf /var/log/Agent

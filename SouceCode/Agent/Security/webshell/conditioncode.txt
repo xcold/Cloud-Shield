@@ -1,0 +1,36 @@
+aspshell
+Execute(request
+execute request(
+eval request(
+"ev"&"al(request(
+ExecuteGlobal request
+┼癥污爠煥敵瑳∨≡┩>
+┼攠數畣整爠煥敵瑳∨∣┩愾
+SqlRootkit
+专用小马
+小马
+整站文件打包
+确认解包吗
+dama
+不要干坏事
+hack
+fuck
+郁闷，权限不够估计不能执行命令！
+base64
+base64_decode
+angle
+<? php eval($_POST[cmd]);?>
+<?php eval($_POST[
+<?php system($_REQUEST['cmd']);?>
+<?php system($_REQUEST[
+phpspy
+Scanners
+打包下载
+打包程序扩展名
+asp.NET木马特征：
+ASPXSpy
+专用小马
+rootkit
+JFolder
+grep -r --include=*.php  '[^a-z]eval($_POST' . > grep.txt
+grep -r --include=*.php  'file_put_contents(.*$_POST\[.*\]);' . > grep.txt

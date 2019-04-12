@@ -1,0 +1,15 @@
+cmd.
+shell.
+one.
+one8.
+system.
+php4
+php5
+cer
+asa
+ashx
+ascx
+jspx
+war
+cfm
+cgi

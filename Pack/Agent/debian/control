@@ -1,0 +1,13 @@
+Source: agent
+Section: comm
+Priority: extra
+Maintainer: verticallimit <250425650@qq.com>
+Build-depends: debhelper (>= 8.0.0)
+Standards-Version: 0.0.3
+
+
+Package: dyagent
+Architecture: any
+Depends: libbz2-1.0 
+Description: YunDun.
+	Yundun, a bussiness server security software for daily work.

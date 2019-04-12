@@ -1,0 +1,40 @@
+#! /bin/bash
+
+# echo "------ postinst started ------"
+
+set -e
+
+appPath="/usr/Agent"
+
+appData="/usr/AgentData"
+
+if [ ! -d ${appData} ]; then
+	mkdir ${appData}
+fi
+
+# 新增日志目录文件
+mkdir /var/log/Agent
+mkdir /var/log/Agent/Log_Daemon
+mkdir /var/log/Agent/Log_Agent
+mkdir /var/log/Agent/Log_AgentDL
+
+echo "change Agent mod to all user."
+chmod -R a+rw ${appPath}
+chmod +x ${appPath}/*
+chmod +x ${appPath}/Plugins/*
+
+echo "设置开机自动启动多益云盾"
+sed -i '/exit/i\cd /usr/Agent && ./Start_Agent.sh' /etc/rc.local
+
+echo "安装完成自动启动多益云盾" 
+check_user=`whoami`
+if [ "$check_user" == "root" ]
+then
+	echo "root用户"
+	cd /${appPath}/
+	./Start_Agent.sh
+else
+	echo "非root用户"
+	cd /${appPath}/
+	sudo ./Start_Agent.sh
+fi

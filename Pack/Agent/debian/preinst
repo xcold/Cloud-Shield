@@ -1,0 +1,60 @@
+#! /bin/bash
+
+# debian软件包(".deb")解压前执行的脚本,为正在被升级的包停止相关服务,直到升级或安装完成.(成功后执行'postinst'脚本).
+
+# 安装之前判断当前系统是否已经安装有agent
+
+check_again=`dpkg -l | grep agent`
+
+# 如果曾经安装过则判断守护进程是否在运行
+cmd=`pidof Daemon`
+
+
+if [ "$check_again" == "" ]
+then
+	echo "正常安装agent"
+else
+	if [ "$cmd" == "" ]
+	then
+		echo "正常安装agent"
+	else
+		pkill Daemon
+		pkill Agent
+		echo "已安装agent,请输入命令apt-get remove agent卸载之后重新安装!!!"
+	fi
+fi
+
+# 安装之前判断当前安装包与系统是否匹配
+
+check_version=`cat /etc/debian_version | grep 8.`
+
+version1=" "
+version2=" "
+
+if [ "$check_version" == "" ]
+then
+	echo "debain7系统"
+	version1="debian7"
+else
+	echo "debian8系统"
+	version1="debian8"
+fi
+
+# 当前安装包为debian8
+deb_version="debian8"
+
+if [ "$deb_version" == "debian8" ]
+then
+	echo "debain8安装包"
+	version2="debian8"
+else
+	echo "debian7安装包"
+	version2="debian7"
+fi
+
+if [ "$version1" == "$version2" ]
+then
+	echo "安装包与系统匹配"
+else
+	echo "安装包与当前系统不匹配,请安装正确的系统版本!!!"
+fi
